@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>She Women — Dress, Memory & Identity</title>
+<style>
+:root{--bg:#f2eee7;--ink:#171412;--red:#8f3030;--line:#cfc7bc;--muted:#746a62}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,sans-serif}
+.wrap{max-width:1400px;margin:auto;padding:0 34px}header{position:sticky;top:0;z-index:20;background:#f2eee7e8;border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+.head{height:70px;display:flex;align-items:center;justify-content:space-between}.logo,nav{font-size:11px;letter-spacing:.15em;text-transform:uppercase}nav a{margin-left:24px;color:inherit;text-decoration:none}
+.hero{display:grid;grid-template-columns:1fr 1.15fr;min-height:720px;border-bottom:1px solid var(--line)}.copy{display:flex;flex-direction:column;justify-content:center;padding-right:55px}
+.kicker{font-size:11px;letter-spacing:.2em;color:var(--red);text-transform:uppercase;margin-bottom:24px}h1,h2,h3{font-family:Georgia,serif;font-weight:400}
+h1{font-size:clamp(70px,9vw,145px);line-height:.82;letter-spacing:-.055em;margin:0}.copy p,.intro{font:20px/1.6 Georgia,serif;color:var(--muted);max-width:760px}
+.visual,.slot{position:relative;background:#ded7ce;overflow:hidden}.visual{background:#171412;min-height:720px}
+.visual img,.slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}.placeholder{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#766d65;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:24px}
+.visual .placeholder{color:#bcb4aa}.upload{display:inline-block;border:1px solid currentColor;padding:8px 10px;margin-top:12px;cursor:pointer}.upload input{display:none}
+.section{padding:100px 0;border-bottom:1px solid var(--line)}.section-head{display:grid;grid-template-columns:150px 1fr;gap:30px;margin-bottom:52px}.num{font:44px Georgia,serif;color:#9c938a}
+h2{font-size:clamp(48px,6vw,82px);line-height:1;letter-spacing:-.04em;margin:0}.dress{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}.dress .slot{min-height:700px}
+.parts{border:1px solid var(--line);padding:24px;background:#ece7e0}.parts h3{font-size:33px;margin:0 0 20px}.part{display:grid;grid-template-columns:45px 1fr;gap:12px;border-top:1px solid var(--line);padding:16px 0}.part b{font-size:11px;letter-spacing:.12em;text-transform:uppercase}.part p{margin:6px 0 0;color:var(--muted);font:16px/1.45 Georgia,serif}.pn{font:24px Georgia,serif;color:var(--red)}
+.objects{display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:14px}.card{border:1px solid var(--line);background:#ebe6df}.card .slot{height:430px}.card:first-child .slot{height:560px}.card-copy{padding:20px}.card-copy small{font-size:10px;letter-spacing:.14em;color:var(--red)}.card-copy h3{font-size:32px;margin:8px 0}.card-copy p{font:16px/1.5 Georgia,serif;color:var(--muted)}
+.details{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.detail{border:1px solid var(--line);background:#ebe6df}.detail .slot{height:330px}.detail div:last-child{padding:14px}.detail b{font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.archive-tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}.filter{background:transparent;border:1px solid var(--line);padding:9px 12px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}.filter.active{background:var(--ink);color:var(--bg)}
+.archive{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.item{border:1px solid var(--line);background:#ebe6df}.item .slot{height:300px}.meta{padding:16px}.meta small{font-size:10px;color:var(--red);letter-spacing:.1em}.meta h3{font-size:27px;margin:7px 0}
+.editor{position:fixed;right:16px;bottom:16px;z-index:40;width:290px}.toggle,.panel button{width:100%;padding:11px;border:0;background:#171412;color:#f2eee7;cursor:pointer}.toggle{border-radius:999px;width:auto;float:right}.panel{clear:both;display:none;background:#1f1b19;color:#eee7de;padding:14px;margin-top:48px}.editor.open .panel{display:block}.panel button{border:1px solid #4f4742;margin-top:7px}.panel p{font-size:11px;color:#b9afa6;line-height:1.5}.editing [data-edit]{outline:1px dashed var(--red);outline-offset:3px}
+footer{padding:50px 34px 70px;max-width:1400px;margin:auto;font-size:11px;color:var(--muted);display:flex;justify-content:space-between}
+@media(max-width:900px){nav{display:none}.hero,.dress{grid-template-columns:1fr}.objects{grid-template-columns:1fr}.details,.archive{grid-template-columns:1fr 1fr}.section-head{grid-template-columns:1fr}.copy{padding:70px 0}.visual{min-height:520px}}
+@media(max-width:560px){.wrap{padding:0 20px}.details,.archive{grid-template-columns:1fr}h1{font-size:70px}}
+</style>
+</head>
+<body>
+<header><div class="wrap head"><div class="logo" data-edit>SHE HERITAGE</div><nav><a href="#dress">Dress</a><a href="#headwear">Headwear</a><a href="#craft">Craft</a><a href="#archive">Archive</a></nav></div></header>
+
+<main>
+<div class="wrap hero">
+  <div class="copy">
+    <div class="kicker" data-edit>DRESS · BODY · MEMORY</div>
+    <h1 data-edit>SHE<br>WOMEN</h1>
+    <p data-edit>A digital curation project exploring She women’s dress culture through the Phoenix Dress, head ornaments, craftsmanship, memory and contemporary identity.</p>
+  </div>
+  <div class="visual"><img id="hero"><div class="placeholder">HERO IMAGE<br>She woman / Phoenix Dress / headwear portrait<br><label class="upload">Replace image<input type="file" accept="image/*" onchange="loadImg(event,'hero')"></label></div></div>
+</div>
+
+<section class="section" id="dress"><div class="wrap">
+  <div class="section-head"><div class="num">01</div><div><div class="kicker">THE DRESSED BODY</div><h2 data-edit>Phoenix Dress Structure</h2><p class="intro" data-edit>Read the Phoenix Dress as a complete visual system: headwear, garment construction, embroidered borders, waist layering and lower-body silhouette.</p></div></div>
+  <div class="dress">
+    <div class="slot"><img id="dressimg"><div class="placeholder">FULL PHOENIX DRESS<br><label class="upload">Replace image<input type="file" accept="image/*" onchange="loadImg(event,'dressimg')"></label></div></div>
+    <div class="parts"><h3 data-edit>Explore the garment</h3>
+      <div class="part"><div class="pn">01</div><div><b data-edit>Headwear</b><p data-edit>Hair arrangement, hairpins and suspended ornaments.</p></div></div>
+      <div class="part"><div class="pn">02</div><div><b data-edit>Collar</b><p data-edit>Construction, contrast and decorative framing.</p></div></div>
+      <div class="part"><div class="pn">03</div><div><b data-edit>Sleeves</b><p data-edit>Embroidered borders and movement.</p></div></div>
+      <div class="part"><div class="pn">04</div><div><b data-edit>Embroidery</b><p data-edit>Motifs, stitches and visual memory.</p></div></div>
+      <div class="part"><div class="pn">05</div><div><b data-edit>Waist / Apron</b><p data-edit>Layering, fastening and silhouette.</p></div></div>
+      <div class="part"><div class="pn">06</div><div><b data-edit>Lower Garment</b><p data-edit>Proportion and regional variation.</p></div></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="section" id="headwear"><div class="wrap">
+  <div class="section-head"><div class="num">02</div><div><div class="kicker">DRESSING THE HEAD</div><h2 data-edit>Hair · Silver · Memory</h2><p class="intro" data-edit>Headwear is treated as an independent material archive rather than a minor accessory.</p></div></div>
+  <div class="objects">
+    <article class="card"><div class="slot"><img id="hairpins"><div class="placeholder">THREE HAIRPINS<br><label class="upload">Replace image<input type="file" accept="image/*" onchange="loadImg(event,'hairpins')"></label></div></div><div class="card-copy"><small>OBJECT 001</small><h3 data-edit>Three Hairpins</h3><p data-edit>Add your verified description, local terminology, construction, placement and cultural context here.</p></div></article>
+    <article class="card"><div class="slot"><img id="silver"><div class="placeholder">SILVER ORNAMENTS<br><label class="upload">Replace image<input type="file" accept="image/*" onchange="loadImg(event,'silver')"></label></div></div><div class="card-copy"><small>OBJECT 002</small><h3 data-edit>Silver Ornaments</h3><p data-edit>Material, movement, suspension and relation to the dressed body.</p></div></article>
+    <article class="card"><div class="slot"><img id="hairstyle"><div class="placeholder">HAIRSTYLE DETAIL<br><label class="upload">Replace image<input type="file" accept="image/*" onchange="loadImg(event,'hairstyle')"></label></div></div><div class="card-copy"><small>OBJECT 003</small><h3 data-edit>Hairstyle</h3><p data-edit>The structural base on which ornaments are positioned and displayed.</p></div></article>
+  </div>
+</div></section>
+
+<section class="section" id="craft"><div class="wrap">
+  <div class="section-head"><div class="num">03</div><div><div class="kicker">MATERIAL KNOWLEDGE</div><h2 data-edit>Making the Phoenix</h2><p class="intro" data-edit>Use close-up photography to turn the site into a study of materials, techniques and garment details.</p></div></div>
+  <div class="details">
+    <div class="detail"><div class="slot"><img id="emb"><div class="placeholder">EMBROIDERY<br><label class="upload">Replace<input type="file" accept="image/*" onchange="loadImg(event,'emb')"></label></div></div><div><b data-edit>Embroidery</b></div></div>
+    <div class="detail"><div class="slot"><img id="sleeve"><div class="placeholder">SLEEVE DETAIL<br><label class="upload">Replace<input type="file" accept="image/*" onchange="loadImg(event,'sleeve')"></label></div></div><div><b data-edit>Sleeve</b></div></div>
+    <div class="detail"><div class="slot"><img id="waist"><div class="placeholder">WAIST / APRON<br><label class="upload">Replace<input type="file" accept="image/*" onchange="loadImg(event,'waist')"></label></div></div><div><b data-edit>Waist</b></div></div>
+    <div class="detail"><div class="slot"><img id="textile"><div class="placeholder">TEXTILE MACRO<br><label class="upload">Replace<input type="file" accept="image/*" onchange="loadImg(event,'textile')"></label></div></div><div><b data-edit>Textile</b></div></div>
+  </div>
+</div></section>
+
+<section class="section" id="archive"><div class="wrap">
+  <div class="section-head"><div class="num">04</div><div><div class="kicker">DIGITAL COLLECTION</div><h2 data-edit>Archive</h2><p class="intro" data-edit>Build a searchable visual catalogue of garments, headwear, silver, embroidery and fieldwork records.</p></div></div>
+  <div class="archive-tools"><button class="filter active" onclick="filterItems('all',this)">All</button><button class="filter" onclick="filterItems('dress',this)">Dress</button><button class="filter" onclick="filterItems('headwear',this)">Headwear</button><button class="filter" onclick="filterItems('silver',this)">Silver</button><button class="filter" onclick="filterItems('embroidery',this)">Embroidery</button></div>
+  <div class="archive">
+    <div class="item" data-cat="dress"><div class="slot"><img id="a1"><div class="placeholder">OBJ.001<br><label class="upload">Image<input type="file" accept="image/*" onchange="loadImg(event,'a1')"></label></div></div><div class="meta"><small>DRESS · OBJ.001</small><h3 data-edit>Phoenix Dress</h3></div></div>
+    <div class="item" data-cat="headwear"><div class="slot"><img id="a2"><div class="placeholder">OBJ.002<br><label class="upload">Image<input type="file" accept="image/*" onchange="loadImg(event,'a2')"></label></div></div><div class="meta"><small>HEADWEAR · OBJ.002</small><h3 data-edit>Three Hairpins</h3></div></div>
+    <div class="item" data-cat="silver"><div class="slot"><img id="a3"><div class="placeholder">OBJ.003<br><label class="upload">Image<input type="file" accept="image/*" onchange="loadImg(event,'a3')"></label></div></div><div class="meta"><small>SILVER · OBJ.003</small><h3 data-edit>Silver Ornament</h3></div></div>
+    <div class="item" data-cat="embroidery"><div class="slot"><img id="a4"><div class="placeholder">OBJ.004<br><label class="upload">Image<input type="file" accept="image/*" onchange="loadImg(event,'a4')"></label></div></div><div class="meta"><small>EMBROIDERY · OBJ.004</small><h3 data-edit>Embroidered Border</h3></div></div>
+    <div class="item" data-cat="dress"><div class="slot"><img id="a5"><div class="placeholder">OBJ.005<br><label class="upload">Image<input type="file" accept="image/*" onchange="loadImg(event,'a5')"></label></div></div><div class="meta"><small>DRESS · OBJ.005</small><h3 data-edit>Garment Detail</h3></div></div>
+    <div class="item" data-cat="headwear"><div class="slot"><img id="a6"><div class="placeholder">OBJ.006<br><label class="upload">Image<input type="file" accept="image/*" onchange="loadImg(event,'a6')"></label></div></div><div class="meta"><small>HEADWEAR · OBJ.006</small><h3 data-edit>Hair Arrangement</h3></div></div>
+  </div>
+</div></section>
+</main>
+
+<footer><span data-edit>SHE WOMEN · DIGITAL CURATION PROJECT</span><span data-edit>2026</span></footer>
+
+<div class="editor" id="editor"><button class="toggle" onclick="editor.classList.toggle('open')">Edit Website</button><div class="panel"><button id="editbtn" onclick="toggleEdit()">Enable Text Edit Mode</button><button onclick="saveText()">Save Text in Browser</button><button onclick="resetText()">Reset Saved Text</button><p>Turn on edit mode, then click any outlined text and type directly. Each image placeholder also has a Replace button.</p></div></div>
+
+<script>
+let editing=false;
+function toggleEdit(){editing=!editing;document.body.classList.toggle('editing',editing);document.querySelectorAll('[data-edit]').forEach(x=>x.contentEditable=editing?'true':'false');editbtn.textContent=editing?'Disable Text Edit Mode':'Enable Text Edit Mode'}
+function loadImg(e,id){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=v=>{let im=document.getElementById(id);im.src=v.target.result;im.style.display='block';localStorage.setItem('she-img-'+id,v.target.result)};r.readAsDataURL(f)}
+function saveText(){localStorage.setItem('she-text',JSON.stringify([...document.querySelectorAll('[data-edit]')].map(x=>x.innerHTML)));alert('Saved in this browser.')}
+function resetText(){localStorage.removeItem('she-text');location.reload()}
+function filterItems(c,b){document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.item').forEach(x=>x.style.display=(c==='all'||x.dataset.cat===c)?'block':'none')}
+window.onload=()=>{let t=JSON.parse(localStorage.getItem('she-text')||'null');if(t)document.querySelectorAll('[data-edit]').forEach((x,i)=>{if(t[i]!=null)x.innerHTML=t[i]});document.querySelectorAll('img[id]').forEach(im=>{let s=localStorage.getItem('she-img-'+im.id);if(s){im.src=s;im.style.display='block'}})}
+</script>
+</body></html>

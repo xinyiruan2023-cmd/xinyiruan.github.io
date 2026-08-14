@@ -6,4 +6,13 @@
 @media(max-width:520px){.hero h1{font-size:72px}.chapter{padding:20vw 6vw}.section-head h2,.identity h2{font-size:60px}.manifesto blockquote{font-size:38px}.anatomy-main{min-height:420px}.object-wide figure{height:470px}.red-card{grid-template-columns:1fr}.two-col{grid-template-columns:1fr}.identity-copy .large-copy{font-size:29px}}
 
 /* Keep the page interactive while curator mode is open. */
-.editor-backdrop.open{pointer-events:none}
+.editor-backdrop.open{opacity:0;pointer-events:none}
+
+/* On desktop, reserve space for the curator panel instead of covering the page. */
+@media(min-width:851px){
+  body.editing .site-header,
+  body.editing main,
+  body.editing footer{width:calc(100% - 390px)}
+  body.editing .site-header{padding-left:2vw;padding-right:2vw}
+  body.editing .site-header nav{gap:1.2vw}
+}

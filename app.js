@@ -1,4 +1,4 @@
-const STORAGE_KEY='she-women-curation-v1';
+const STORAGE_KEY='she-women-curation-v2-expanded';
 const body=document.body, editor=document.getElementById('editor'), backdrop=document.getElementById('editorBackdrop');
 const editable=[...document.querySelectorAll('[data-editable]')];
 const frames=[...document.querySelectorAll('[data-media-id]')];
@@ -20,5 +20,6 @@ document.getElementById('publishButton').onclick=()=>{const clone=document.docum
 document.getElementById('exportButton').onclick=()=>{const blob=new Blob([JSON.stringify(collect(),null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='she-women-site-settings.json';a.click();URL.revokeObjectURL(a.href);status('Settings exported.')};
 const configInput=document.getElementById('configInput');document.getElementById('importButton').onclick=()=>configInput.click();configInput.onchange=()=>{const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(reader.result);apply(data);localStorage.setItem(STORAGE_KEY,JSON.stringify(data));status('Settings imported and saved.')}catch(e){status('That settings file is not valid.')}};if(configInput.files[0])reader.readAsText(configInput.files[0]);configInput.value=''};
 document.getElementById('resetButton').onclick=()=>{if(confirm('Reset all text, images and colors to the original site?')){localStorage.removeItem(STORAGE_KEY);location.reload()}};
+document.querySelectorAll('[data-carousel]').forEach(carousel=>{const slides=[...carousel.querySelectorAll('.carousel-slide')];let current=0;const show=index=>{current=(index+slides.length)%slides.length;slides.forEach((slide,i)=>slide.classList.toggle('active',i===current));carousel.querySelector('[data-current]').textContent=String(current+1).padStart(2,'0')};carousel.querySelector('[data-prev]').onclick=()=>show(current-1);carousel.querySelector('[data-next]').onclick=()=>show(current+1)});
 try{apply(JSON.parse(localStorage.getItem(STORAGE_KEY)))}catch(e){console.warn('Saved settings could not be loaded.')}
 document.getElementById('year').textContent=new Date().getFullYear();

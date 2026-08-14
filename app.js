@@ -1,12 +1,15 @@
 const STORAGE_KEY='she-women-curation-v2-expanded';
-const body=document.body, editor=document.getElementById('editor'), backdrop=document.getElementById('editorBackdrop');
+const body=document.body, editor=document.getElementById('editor'), backdrop=document.getElementById('editorBackdrop'), editTrigger=document.getElementById('editTrigger');
 const editable=[...document.querySelectorAll('[data-editable]')];
 const frames=[...document.querySelectorAll('[data-media-id]')];
 let selected=null, drag=null;
 
 function openEditor(){editor.classList.add('open');backdrop.classList.add('open');editor.setAttribute('aria-hidden','false');body.classList.add('editing');editable.forEach(el=>el.contentEditable='true')}
 function closeEditor(){editor.classList.remove('open');backdrop.classList.remove('open');editor.setAttribute('aria-hidden','true');body.classList.remove('editing');editable.forEach(el=>el.contentEditable='false');selectFrame(null)}
-document.getElementById('editTrigger').onclick=openEditor;document.getElementById('closeEditor').onclick=closeEditor;backdrop.onclick=closeEditor;
+const editorEnabled=new URLSearchParams(location.search).get('edit')==='1';
+editTrigger.hidden=!editorEnabled;
+editTrigger.style.display=editorEnabled?'':'none';
+editTrigger.onclick=openEditor;document.getElementById('closeEditor').onclick=closeEditor;backdrop.onclick=closeEditor;
 function selectFrame(frame){frames.forEach(f=>f.classList.remove('selected'));selected=frame;const active=!!frame;document.getElementById('replaceButton').disabled=!active;document.getElementById('zoomRange').disabled=!active;document.getElementById('selectedLabel').textContent=active?frame.dataset.mediaId:'None';if(active){frame.classList.add('selected');const z=Math.round((parseFloat(frame.dataset.zoom)||1)*100);document.getElementById('zoomRange').value=z;document.getElementById('zoomOutput').value=z+'%'}}
 frames.forEach(frame=>{frame.addEventListener('click',e=>{if(body.classList.contains('editing')){e.preventDefault();selectFrame(frame)}});frame.addEventListener('pointerdown',e=>{if(!body.classList.contains('editing'))return;selectFrame(frame);const img=frame.querySelector('img');const pos=(img.style.objectPosition||'50% 50%').split(' ');drag={frame,img,x:e.clientX,y:e.clientY,px:parseFloat(pos[0]),py:parseFloat(pos[1])};frame.classList.add('dragging');frame.setPointerCapture(e.pointerId)});frame.addEventListener('pointermove',e=>{if(!drag||drag.frame!==frame)return;const r=frame.getBoundingClientRect();const x=Math.max(0,Math.min(100,drag.px+(e.clientX-drag.x)/r.width*100));const y=Math.max(0,Math.min(100,drag.py+(e.clientY-drag.y)/r.height*100));drag.img.style.objectPosition=`${x}% ${y}%`;frame.dataset.x=x;frame.dataset.y=y});frame.addEventListener('pointerup',()=>{frame.classList.remove('dragging');drag=null})});
 const imageInput=document.getElementById('imageInput');document.getElementById('replaceButton').onclick=()=>imageInput.click();imageInput.onchange=()=>{const file=imageInput.files[0];if(!file||!selected)return;const reader=new FileReader();reader.onload=()=>{selected.querySelector('img').src=reader.result;selected.dataset.customSrc=reader.result;status('Image replaced — save when ready.')};reader.readAsDataURL(file);imageInput.value=''};

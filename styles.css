@@ -15,4 +15,22 @@
   body.editing footer{width:calc(100% - 390px)}
   body.editing .site-header{padding-left:2vw;padding-right:2vw}
   body.editing .site-header nav{gap:1.2vw}
+  body.editing .chapter{padding-left:4vw;padding-right:4vw}
+  body.editing .hero{grid-template-columns:1fr;padding-top:5vw}
+  body.editing .hero-copy{max-width:100%}
+  body.editing .hero h1{font-size:clamp(64px,8vw,110px)}
+  body.editing .hero-image{height:60vh;margin-top:5vw}
+  body.editing .vertical-note{display:none}
+  body.editing .manifesto,
+  body.editing .section-head,
+  body.editing .identity{grid-template-columns:1fr}
+  body.editing .section-head h2,
+  body.editing .identity h2{font-size:clamp(58px,7vw,96px);overflow-wrap:anywhere}
+  body.editing .anatomy-grid,
+  body.editing .object-grid,
+  body.editing .archive-grid{grid-template-columns:1fr}
+  body.editing .object-wide{grid-row:auto}
+  body.editing .archive-grid article:nth-child(2){margin-top:0}
+  body.editing footer{grid-template-columns:1fr}
+  body.editing footer>p:last-child{text-align:left}
 }

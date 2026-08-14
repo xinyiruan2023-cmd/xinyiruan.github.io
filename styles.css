@@ -7,6 +7,7 @@
 
 /* Keep the page interactive while curator mode is open. */
 .editor-backdrop.open{opacity:0;pointer-events:none}
+.editing .site-header [data-editable]{outline:1px dashed var(--red);outline-offset:4px}
 
 /* On desktop, reserve space for the curator panel instead of covering the page. */
 @media(min-width:851px){

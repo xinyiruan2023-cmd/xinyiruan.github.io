@@ -1,8 +1,9 @@
-const STORAGE_KEY='she-women-curation-v2-expanded';
+const STORAGE_KEY='she-women-curation-v3-full-edit';
 const body=document.body, editor=document.getElementById('editor'), backdrop=document.getElementById('editorBackdrop'), editTrigger=document.getElementById('editTrigger');
 const editable=[...document.querySelectorAll('[data-editable]')];
 const frames=[...document.querySelectorAll('[data-media-id]')];
 let selected=null, drag=null;
+editable.forEach(el=>el.addEventListener('click',e=>{if(body.classList.contains('editing'))e.preventDefault()}));
 
 function openEditor(){editor.classList.add('open');backdrop.classList.add('open');editor.setAttribute('aria-hidden','false');body.classList.add('editing');editable.forEach(el=>el.contentEditable='true')}
 function closeEditor(){editor.classList.remove('open');backdrop.classList.remove('open');editor.setAttribute('aria-hidden','true');body.classList.remove('editing');editable.forEach(el=>el.contentEditable='false');selectFrame(null)}
@@ -15,7 +16,7 @@ frames.forEach(frame=>{frame.addEventListener('click',e=>{if(body.classList.cont
 const imageInput=document.getElementById('imageInput');document.getElementById('replaceButton').onclick=()=>imageInput.click();imageInput.onchange=()=>{const file=imageInput.files[0];if(!file||!selected)return;const reader=new FileReader();reader.onload=()=>{selected.querySelector('img').src=reader.result;selected.dataset.customSrc=reader.result;status('Image replaced — save when ready.')};reader.readAsDataURL(file);imageInput.value=''};
 document.getElementById('zoomRange').oninput=e=>{if(!selected)return;const z=e.target.value/100;selected.dataset.zoom=z;selected.querySelector('img').style.transform=`scale(${z})`;document.getElementById('zoomOutput').value=e.target.value+'%'};
 document.querySelectorAll('.color-control').forEach(input=>input.oninput=()=>document.documentElement.style.setProperty(input.dataset.color,input.value));
-function collect(){return{version:1,text:editable.map((el,i)=>({i,html:el.innerHTML})),media:frames.map(f=>({id:f.dataset.mediaId,src:f.dataset.customSrc||'',x:f.dataset.x||50,y:f.dataset.y||50,zoom:f.dataset.zoom||1})),colors:Object.fromEntries([...document.querySelectorAll('.color-control')].map(i=>[i.dataset.color,i.value]))}}
+function collect(){return{version:3,text:editable.map((el,i)=>({i,html:el.innerHTML})),media:frames.map(f=>({id:f.dataset.mediaId,src:f.dataset.customSrc||'',x:f.dataset.x||50,y:f.dataset.y||50,zoom:f.dataset.zoom||1})),colors:Object.fromEntries([...document.querySelectorAll('.color-control')].map(i=>[i.dataset.color,i.value]))}}
 function apply(data){if(!data)return;(data.text||[]).forEach(x=>{if(editable[x.i])editable[x.i].innerHTML=x.html});(data.media||[]).forEach(x=>{const f=document.querySelector(`[data-media-id="${CSS.escape(x.id)}"]`);if(!f)return;const img=f.querySelector('img');if(x.src){img.src=x.src;f.dataset.customSrc=x.src}img.style.objectPosition=`${x.x}% ${x.y}%`;img.style.transform=`scale(${x.zoom})`;f.dataset.x=x.x;f.dataset.y=x.y;f.dataset.zoom=x.zoom});Object.entries(data.colors||{}).forEach(([k,v])=>{document.documentElement.style.setProperty(k,v);const c=document.querySelector(`[data-color="${k}"]`);if(c)c.value=v})}
 function status(msg){const el=document.getElementById('saveStatus');el.textContent=msg;setTimeout(()=>{if(el.textContent===msg)el.textContent=''},3500)}
 document.getElementById('saveButton').onclick=()=>{try{localStorage.setItem(STORAGE_KEY,JSON.stringify(collect()));status('Saved in this browser.')}catch(e){status('Too much image data. Export settings instead.')}};

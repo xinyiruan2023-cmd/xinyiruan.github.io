@@ -1,4 +1,4 @@
-const STORAGE_KEY='she-women-curation-v3-full-edit';
+const STORAGE_KEY='she-women-curation-v4-academic-revision';
 const body=document.body, editor=document.getElementById('editor'), backdrop=document.getElementById('editorBackdrop'), editTrigger=document.getElementById('editTrigger');
 const editable=[...document.querySelectorAll('[data-editable]')];
 const frames=[...document.querySelectorAll('[data-media-id]')];
